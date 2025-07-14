@@ -1,0 +1,73 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Portuguese (`pt`).
+class AppLocalizationsPt extends AppLocalizations {
+  AppLocalizationsPt([String locale = 'pt']) : super(locale);
+
+  @override
+  String get login_page => 'Página de Login';
+
+  @override
+  String get username => 'Usuário';
+
+  @override
+  String get password => 'Senha';
+
+  @override
+  String get login => 'Logar';
+
+  @override
+  String get clear => 'Limpar';
+
+  @override
+  String get empty => 'Vazio';
+
+  @override
+  String get wrong_username => 'Usuário incorreto';
+
+  @override
+  String get wrong_password => 'Senha incorreta';
+
+  @override
+  String get main_page => 'Página Principal';
+
+  @override
+  String get logout => 'Logout';
+
+  @override
+  String get some_text_here => 'Algum texto aqui!';
+
+  @override
+  String get loading => 'Carregando...';
+
+  @override
+  String get view_log_of_login_tries => 'Ver o registro de tentativas de login';
+
+  @override
+  String get login_tries_page => 'Página de tentativas de Login';
+
+  @override
+  String get login_tries_so_far => 'Tentativas até o momento:';
+
+  @override
+  String get navBarHome => 'Início';
+
+  @override
+  String get navBarMyExchanges => 'Minhas Trocas';
+
+  @override
+  String get navBarNewExchange => 'Nova Troca';
+
+  @override
+  String get navBarTries => 'Tentativas';
+
+  @override
+  String get mainPageTitle => 'Página Principal';
+
+  @override
+  String get mainPageWelcomeMessage => 'Bem-vindo à Página Principal!';
+}

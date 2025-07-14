@@ -1,0 +1,23 @@
+{
+  "login_page": "Login Page",
+  "username": "Username",
+  "password": "Password",
+  "login": "Login",
+  "clear": "Clear",
+  "empty": "Empty",
+  "wrong_username": "Wrong user name",
+  "wrong_password": "Wrong password",
+  "main_page": "Main Page",
+  "logout": "Logout",
+  "some_text_here": "Some text here!",
+  "loading" : "Loading...",
+  "view_log_of_login_tries": "View the log of login tries",
+  "login_tries_page": "Login Tries Page",
+  "login_tries_so_far": "Login tries so far:",
+   "navBarHome": "Exchanges",
+   "navBarMyExchanges": "My Exchanges",
+   "navBarNewExchange": "New Exchange",
+   "navBarTries": "Tries",
+   "mainPageTitle": "Main Page",
+   "mainPageWelcomeMessage": "Welcome to the Main Page!"
+}
