@@ -3,8 +3,10 @@ import 'package:provider/provider.dart';
 import '../../l10n/app_localizations.dart';
 import '../../viewmodels/exchanges_view_model.dart';
 import '../components/navigation_bar.dart';
+import '../components/exchange_card.dart';
+import '../components/stateful_content.dart';
 
-class MainPage extends StatefulWidget { // Alterado para StatefulWidget
+class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
   @override
@@ -13,11 +15,32 @@ class MainPage extends StatefulWidget { // Alterado para StatefulWidget
 
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
+  final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<ExchangesViewModel>(context, listen: false).fetchExchanges();
+    });
+    _searchController.addListener(_onSearchChanged);
+  }
+
+  @override
+  void dispose() {
+    _searchController.removeListener(_onSearchChanged);
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _onSearchChanged() {
+    Provider.of<ExchangesViewModel>(context, listen: false).setSearchQuery(_searchController.text);
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
-    AppNavigator.navigateToPage(context, index);
   }
 
   @override
@@ -30,45 +53,46 @@ class _MainPageState extends State<MainPage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(localizations.mainPageTitle),
       ),
-      body: viewModel.isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : ListView.builder(
-        padding: const EdgeInsets.all(16),
-        itemCount: viewModel.exchanges.length,
-        itemBuilder: (context, index) {
-          final exchange = viewModel.exchanges[index];
-          return Card(
-            margin: const EdgeInsets.only(bottom: 12),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    exchange.bookName,
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  // Você pode internacionalizar esses textos também, se quiser
-                  Text('Estado: ${exchange.bookState}'),
-                  Text('Buscando por: ${exchange.searchingFor}'),
-                  Text('Sugestões: ${exchange.sugested}'),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Ofertas (${exchange.offerings.length}):',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  ...exchange.offerings.map(
-                        (offering) => Text(
-                      '- ${offering.book} (${offering.bookState})',
-                    ),
-                  ),
-                ],
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                hintText: localizations.searchBarHint,
+                prefixIcon: const Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide.none,
+                ),
+                filled: true,
+                fillColor: Theme.of(context).colorScheme.surfaceContainerHigh,
               ),
             ),
-          );
-        },
+          ),
+          Expanded(
+            child: StatefulContent(
+              isLoading: viewModel.isLoading,
+              errorMessage: viewModel.errorMessage,
+              isEmpty: viewModel.exchanges.isEmpty,
+              emptyMessage: localizations.noExchangesAvailable,
+              errorMessageBuilder: (error) => localizations.errorLoadingExchanges(error),
+              searchQuery: viewModel.currentSearchQuery,
+              searchEmptyMessageBuilder: (query) => localizations.noExchangesFoundForQuery(query),
+              child: ListView.builder(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                itemCount: viewModel.exchanges.length,
+                itemBuilder: (context, index) {
+                  final exchange = viewModel.exchanges[index];
+                  return ExchangeCard(exchange: exchange);
+                },
+              ),
+            ),
+          ),
+        ],
       ),
-      bottomNavigationBar: CustomNavBar( // Adicionando a sua CustomNavBar aqui
+      bottomNavigationBar: CustomNavBar(
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
       ),

@@ -63,11 +63,110 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navBarNewExchange => 'New Exchange';
 
   @override
-  String get navBarTries => 'Tries';
-
-  @override
-  String get mainPageTitle => 'Main Page';
+  String get mainPageTitle => 'Exchanges';
 
   @override
   String get mainPageWelcomeMessage => 'Welcome to the Main Page!';
+
+  @override
+  String get noExchangesAvailable => 'No exchanges available.';
+
+  @override
+  String errorLoadingExchanges(Object errorMessage) {
+    return 'Error loading exchanges: $errorMessage';
+  }
+
+  @override
+  String get exchangeState => 'State';
+
+  @override
+  String get exchangeSearchingFor => 'Searching for';
+
+  @override
+  String get exchangeSuggestions => 'Suggestions';
+
+  @override
+  String get exchangeOffers => 'Offers';
+
+  @override
+  String exchangeOfferItem(Object bookName, Object bookState) {
+    return '- $bookName ($bookState)';
+  }
+
+  @override
+  String get searchBarHint => 'Search';
+
+  @override
+  String noExchangesFoundForQuery(Object query) {
+    return 'No exchanges found for \"$query\".';
+  }
+
+  @override
+  String get newExchangePageTitle => 'Register Exchange';
+
+  @override
+  String get bookNameHint => 'Book Name (required)';
+
+  @override
+  String get bookStateTitle => 'Book State (required)';
+
+  @override
+  String get stateNew => 'New';
+
+  @override
+  String get stateSemiNew => 'Semi-new';
+
+  @override
+  String get statePreserved => 'Preserved';
+
+  @override
+  String get stateDamaged => 'Damaged';
+
+  @override
+  String get genresTitle => 'Desired Genres';
+
+  @override
+  String get onlySuggestions => 'Only exchange suggestions';
+
+  @override
+  String get genreFantasy => 'Fantasy';
+
+  @override
+  String get genreSciFi => 'Science Fiction';
+
+  @override
+  String get genreMystery => 'Mystery';
+
+  @override
+  String get genreRomance => 'Romance';
+
+  @override
+  String get genreHorror => 'Horror';
+
+  @override
+  String get genreNonFiction => 'Non-fiction';
+
+  @override
+  String get suggestionsHint => 'Exchange Suggestions';
+
+  @override
+  String get registerButton => 'Register';
+
+  @override
+  String get exchangeRegisteredSuccess => 'Exchange registered successfully!';
+
+  @override
+  String exchangeRegisteredError(Object errorMessage) {
+    return 'Error registering exchange: $errorMessage';
+  }
+
+  @override
+  String get validationRequiredField => 'This field is required.';
+
+  @override
+  String get validationSelectState => 'Please select a book state.';
+
+  @override
+  String get genresOrSuggestionsRequired =>
+      'Please select at least one genre or fill in the suggestions.';
 }

@@ -38,6 +38,8 @@ class Exchange {
     );
   }
 
+  get creatorUserId => null;
+
   Map<String, dynamic> toJson() => {
     'exchange_id': exchangeId,
     'solicitor_id': solicitorId,

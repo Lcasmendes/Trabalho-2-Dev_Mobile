@@ -14,10 +14,62 @@
   "view_log_of_login_tries": "Ver o registro de tentativas de login",
   "login_tries_page": "Página de tentativas de Login",
   "login_tries_so_far": "Tentativas até o momento:",
-  "navBarHome": "Início",
+  "navBarHome": "Trocas",
   "navBarMyExchanges": "Minhas Trocas",
   "navBarNewExchange": "Nova Troca",
   "navBarTries": "Tentativas",
-  "mainPageTitle": "Página Principal",
-  "mainPageWelcomeMessage": "Bem-vindo à Página Principal!"
+  "mainPageTitle": "Trocas",
+  "mainPageWelcomeMessage": "Bem-vindo à Página Principal!",
+  "noExchangesAvailable": "Nenhuma troca disponível.",
+  "errorLoadingExchanges": "Erro ao carregar trocas: {errorMessage}",
+  "@errorLoadingExchanges": {
+    "placeholders": {
+      "errorMessage": {}
+    }
+  },
+  "exchangeState": "Estado",
+  "exchangeSearchingFor": "Buscando por",
+  "exchangeSuggestions": "Sugestões",
+  "exchangeOffers": "Ofertas",
+  "exchangeOfferItem": "- {bookName} ({bookState})",
+  "@exchangeOfferItem": {
+    "placeholders": {
+      "bookName": {},
+      "bookState": {}
+    }
+  },
+  "searchBarHint": "Pesquisar",
+  "noExchangesFoundForQuery": "Nenhuma troca encontrada para \"{query}\".",
+  "@noExchangesFoundForQuery": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "newExchangePageTitle": "Cadastrar troca",
+  "bookNameHint": "Nome do livro (obrigatório)",
+  "bookStateTitle": "Estado do livro (obrigatório)",
+  "stateNew": "Novo",
+  "stateSemiNew": "Seminovo",
+  "statePreserved": "Conservado",
+  "stateDamaged": "Danificado",
+  "genresTitle": "Gêneros buscados",
+  "onlySuggestions": "Apenas as sugestões de troca",
+  "genreFantasy": "Fantasia",
+  "genreSciFi": "Ficção científica",
+  "genreMystery": "Mistério",
+  "genreRomance": "Romance",
+  "genreHorror": "Terror",
+  "genreNonFiction": "Não ficção",
+  "suggestionsHint": "Sugestões de troca",
+  "registerButton": "Cadastrar",
+  "exchangeRegisteredSuccess": "Troca cadastrada com sucesso!",
+  "exchangeRegisteredError": "Erro ao cadastrar troca: {errorMessage}",
+  "@exchangeRegisteredError": {
+    "placeholders": {
+      "errorMessage": {}
+    }
+  },
+  "validationRequiredField": "Este campo é obrigatório.",
+  "validationSelectState": "Por favor, selecione um estado para o livro.",
+  "genresOrSuggestionsRequired": "Por favor, selecione pelo menos um gênero ou preencha as sugestões."
 }

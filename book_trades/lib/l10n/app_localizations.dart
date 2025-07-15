@@ -206,16 +206,10 @@ abstract class AppLocalizations {
   /// **'New Exchange'**
   String get navBarNewExchange;
 
-  /// No description provided for @navBarTries.
-  ///
-  /// In en, this message translates to:
-  /// **'Tries'**
-  String get navBarTries;
-
   /// No description provided for @mainPageTitle.
   ///
   /// In en, this message translates to:
-  /// **'Main Page'**
+  /// **'Exchanges'**
   String get mainPageTitle;
 
   /// No description provided for @mainPageWelcomeMessage.
@@ -223,6 +217,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Welcome to the Main Page!'**
   String get mainPageWelcomeMessage;
+
+  /// No description provided for @noExchangesAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No exchanges available.'**
+  String get noExchangesAvailable;
+
+  /// No description provided for @errorLoadingExchanges.
+  ///
+  /// In en, this message translates to:
+  /// **'Error loading exchanges: {errorMessage}'**
+  String errorLoadingExchanges(Object errorMessage);
+
+  /// No description provided for @exchangeState.
+  ///
+  /// In en, this message translates to:
+  /// **'State'**
+  String get exchangeState;
+
+  /// No description provided for @exchangeSearchingFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Searching for'**
+  String get exchangeSearchingFor;
+
+  /// No description provided for @exchangeSuggestions.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggestions'**
+  String get exchangeSuggestions;
+
+  /// No description provided for @exchangeOffers.
+  ///
+  /// In en, this message translates to:
+  /// **'Offers'**
+  String get exchangeOffers;
+
+  /// No description provided for @exchangeOfferItem.
+  ///
+  /// In en, this message translates to:
+  /// **'- {bookName} ({bookState})'**
+  String exchangeOfferItem(Object bookName, Object bookState);
+
+  /// No description provided for @searchBarHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get searchBarHint;
+
+  /// No description provided for @noExchangesFoundForQuery.
+  ///
+  /// In en, this message translates to:
+  /// **'No exchanges found for \"{query}\".'**
+  String noExchangesFoundForQuery(Object query);
+
+  /// No description provided for @newExchangePageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Register Exchange'**
+  String get newExchangePageTitle;
+
+  /// No description provided for @bookNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Book Name (required)'**
+  String get bookNameHint;
+
+  /// No description provided for @bookStateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Book State (required)'**
+  String get bookStateTitle;
+
+  /// No description provided for @stateNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New'**
+  String get stateNew;
+
+  /// No description provided for @stateSemiNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Semi-new'**
+  String get stateSemiNew;
+
+  /// No description provided for @statePreserved.
+  ///
+  /// In en, this message translates to:
+  /// **'Preserved'**
+  String get statePreserved;
+
+  /// No description provided for @stateDamaged.
+  ///
+  /// In en, this message translates to:
+  /// **'Damaged'**
+  String get stateDamaged;
+
+  /// No description provided for @genresTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Desired Genres'**
+  String get genresTitle;
+
+  /// No description provided for @onlySuggestions.
+  ///
+  /// In en, this message translates to:
+  /// **'Only exchange suggestions'**
+  String get onlySuggestions;
+
+  /// No description provided for @genreFantasy.
+  ///
+  /// In en, this message translates to:
+  /// **'Fantasy'**
+  String get genreFantasy;
+
+  /// No description provided for @genreSciFi.
+  ///
+  /// In en, this message translates to:
+  /// **'Science Fiction'**
+  String get genreSciFi;
+
+  /// No description provided for @genreMystery.
+  ///
+  /// In en, this message translates to:
+  /// **'Mystery'**
+  String get genreMystery;
+
+  /// No description provided for @genreRomance.
+  ///
+  /// In en, this message translates to:
+  /// **'Romance'**
+  String get genreRomance;
+
+  /// No description provided for @genreHorror.
+  ///
+  /// In en, this message translates to:
+  /// **'Horror'**
+  String get genreHorror;
+
+  /// No description provided for @genreNonFiction.
+  ///
+  /// In en, this message translates to:
+  /// **'Non-fiction'**
+  String get genreNonFiction;
+
+  /// No description provided for @suggestionsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Exchange Suggestions'**
+  String get suggestionsHint;
+
+  /// No description provided for @registerButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get registerButton;
+
+  /// No description provided for @exchangeRegisteredSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Exchange registered successfully!'**
+  String get exchangeRegisteredSuccess;
+
+  /// No description provided for @exchangeRegisteredError.
+  ///
+  /// In en, this message translates to:
+  /// **'Error registering exchange: {errorMessage}'**
+  String exchangeRegisteredError(Object errorMessage);
+
+  /// No description provided for @validationRequiredField.
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required.'**
+  String get validationRequiredField;
+
+  /// No description provided for @validationSelectState.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a book state.'**
+  String get validationSelectState;
+
+  /// No description provided for @genresOrSuggestionsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select at least one genre or fill in the suggestions.'**
+  String get genresOrSuggestionsRequired;
 }
 
 class _AppLocalizationsDelegate

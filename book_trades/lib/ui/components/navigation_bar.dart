@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
-import '../main/main_page.dart';
-import '../my_exchanges/my_exchanges_page.dart';
-import '../new_exchanges/new_exchange_page.dart';
 
 class CustomNavBar extends StatefulWidget {
   final int selectedIndex;
@@ -21,8 +18,8 @@ class CustomNavBar extends StatefulWidget {
 class _CustomNavBarState extends State<CustomNavBar> {
   @override
   Widget build(BuildContext context) {
-    final localizations = AppLocalizations.of(context)!; // Acesso aos textos
-    final colorScheme = Theme.of(context).colorScheme; // Acesso ao ColorScheme do tema
+    final localizations = AppLocalizations.of(context)!;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
@@ -49,29 +46,3 @@ class _CustomNavBarState extends State<CustomNavBar> {
   }
 }
 
-class AppNavigator {
-  static void navigateToPage(BuildContext context, int index) {
-    // A lógica de navegação permanece a mesma, pois as páginas em si não dependem diretamente
-    // do texto da navbar para a navegação, apenas os rótulos visuais.
-    switch (index) {
-      case 0:
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const MainPage()),
-        );
-        break;
-      case 1:
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const MyExchangesPage()),
-        );
-        break;
-      case 2:
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const NewExchangePage()),
-        );
-        break;
-    }
-  }
-}

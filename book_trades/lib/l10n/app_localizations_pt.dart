@@ -54,7 +54,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get login_tries_so_far => 'Tentativas até o momento:';
 
   @override
-  String get navBarHome => 'Início';
+  String get navBarHome => 'Trocas';
 
   @override
   String get navBarMyExchanges => 'Minhas Trocas';
@@ -63,11 +63,111 @@ class AppLocalizationsPt extends AppLocalizations {
   String get navBarNewExchange => 'Nova Troca';
 
   @override
-  String get navBarTries => 'Tentativas';
-
-  @override
-  String get mainPageTitle => 'Página Principal';
+  String get mainPageTitle => 'Trocas';
 
   @override
   String get mainPageWelcomeMessage => 'Bem-vindo à Página Principal!';
+
+  @override
+  String get noExchangesAvailable => 'Nenhuma troca disponível.';
+
+  @override
+  String errorLoadingExchanges(Object errorMessage) {
+    return 'Erro ao carregar trocas: $errorMessage';
+  }
+
+  @override
+  String get exchangeState => 'Estado';
+
+  @override
+  String get exchangeSearchingFor => 'Buscando por';
+
+  @override
+  String get exchangeSuggestions => 'Sugestões';
+
+  @override
+  String get exchangeOffers => 'Ofertas';
+
+  @override
+  String exchangeOfferItem(Object bookName, Object bookState) {
+    return '- $bookName ($bookState)';
+  }
+
+  @override
+  String get searchBarHint => 'Pesquisar';
+
+  @override
+  String noExchangesFoundForQuery(Object query) {
+    return 'Nenhuma troca encontrada para \"$query\".';
+  }
+
+  @override
+  String get newExchangePageTitle => 'Cadastrar troca';
+
+  @override
+  String get bookNameHint => 'Nome do livro (obrigatório)';
+
+  @override
+  String get bookStateTitle => 'Estado do livro (obrigatório)';
+
+  @override
+  String get stateNew => 'Novo';
+
+  @override
+  String get stateSemiNew => 'Seminovo';
+
+  @override
+  String get statePreserved => 'Conservado';
+
+  @override
+  String get stateDamaged => 'Danificado';
+
+  @override
+  String get genresTitle => 'Gêneros buscados';
+
+  @override
+  String get onlySuggestions => 'Apenas as sugestões de troca';
+
+  @override
+  String get genreFantasy => 'Fantasia';
+
+  @override
+  String get genreSciFi => 'Ficção científica';
+
+  @override
+  String get genreMystery => 'Mistério';
+
+  @override
+  String get genreRomance => 'Romance';
+
+  @override
+  String get genreHorror => 'Terror';
+
+  @override
+  String get genreNonFiction => 'Não ficção';
+
+  @override
+  String get suggestionsHint => 'Sugestões de troca';
+
+  @override
+  String get registerButton => 'Cadastrar';
+
+  @override
+  String get exchangeRegisteredSuccess => 'Troca cadastrada com sucesso!';
+
+  @override
+  String exchangeRegisteredError(Object errorMessage) {
+    return 'Erro ao cadastrar troca: $errorMessage';
+  }
+
+  @override
+  String get validationRequiredField => 'Este campo é obrigatório.';
+
+  @override
+  String get validationSelectState =>
+      'Por favor, selecione um estado para o livro.';
+
+  @override
+  String get genresOrSuggestionsRequired =>
+      'Por favor, selecione pelo menos um gênero ou preencha as sugestões.';
 }

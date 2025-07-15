@@ -14,10 +14,61 @@
   "view_log_of_login_tries": "View the log of login tries",
   "login_tries_page": "Login Tries Page",
   "login_tries_so_far": "Login tries so far:",
-   "navBarHome": "Exchanges",
-   "navBarMyExchanges": "My Exchanges",
-   "navBarNewExchange": "New Exchange",
-   "navBarTries": "Tries",
-   "mainPageTitle": "Main Page",
-   "mainPageWelcomeMessage": "Welcome to the Main Page!"
+  "navBarHome": "Exchanges",
+  "navBarMyExchanges": "My Exchanges",
+  "navBarNewExchange": "New Exchange",
+  "mainPageTitle": "Exchanges",
+  "mainPageWelcomeMessage": "Welcome to the Main Page!",
+  "noExchangesAvailable": "No exchanges available.",
+  "errorLoadingExchanges": "Error loading exchanges: {errorMessage}",
+  "@errorLoadingExchanges": {
+    "placeholders": {
+      "errorMessage": {}
+    }
+  },
+  "exchangeState": "State",
+  "exchangeSearchingFor": "Searching for",
+  "exchangeSuggestions": "Suggestions",
+  "exchangeOffers": "Offers",
+  "exchangeOfferItem": "- {bookName} ({bookState})",
+  "@exchangeOfferItem": {
+    "placeholders": {
+      "bookName": {},
+      "bookState": {}
+    }
+  },
+  "searchBarHint": "Search",
+  "noExchangesFoundForQuery": "No exchanges found for \"{query}\".",
+  "@noExchangesFoundForQuery": {
+    "placeholders": {
+      "query": {}
+    }
+  },
+  "newExchangePageTitle": "Register Exchange",
+  "bookNameHint": "Book Name (required)",
+  "bookStateTitle": "Book State (required)",
+  "stateNew": "New",
+  "stateSemiNew": "Semi-new",
+  "statePreserved": "Preserved",
+  "stateDamaged": "Damaged",
+  "genresTitle": "Desired Genres",
+  "onlySuggestions": "Only exchange suggestions",
+  "genreFantasy": "Fantasy",
+  "genreSciFi": "Science Fiction",
+  "genreMystery": "Mystery",
+  "genreRomance": "Romance",
+  "genreHorror": "Horror",
+  "genreNonFiction": "Non-fiction",
+  "suggestionsHint": "Exchange Suggestions",
+  "registerButton": "Register",
+  "exchangeRegisteredSuccess": "Exchange registered successfully!",
+  "exchangeRegisteredError": "Error registering exchange: {errorMessage}",
+  "@exchangeRegisteredError": {
+    "placeholders": {
+      "errorMessage": {}
+    }
+  },
+  "validationRequiredField": "This field is required.",
+  "validationSelectState": "Please select a book state.",
+  "genresOrSuggestionsRequired": "Please select at least one genre or fill in the suggestions."
 }
