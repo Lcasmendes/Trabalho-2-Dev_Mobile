@@ -63,13 +63,20 @@
   "suggestionsHint": "Exchange Suggestions",
   "registerButton": "Register",
   "exchangeRegisteredSuccess": "Exchange registered successfully!",
-  "exchangeRegisteredError": "Error registering exchange: {errorMessage}",
-  "@exchangeRegisteredError": {
-    "placeholders": {
-      "errorMessage": {}
-    }
-  },
   "validationRequiredField": "This field is required.",
   "validationSelectState": "Please select a book state.",
-  "genresOrSuggestionsRequired": "Please select at least one genre or fill in the suggestions."
+  "genresOrSuggestionsRequired": "Please select at least one genre or fill in the suggestions.",
+  "exchangeRegisteredError": "Error registering the exchange",
+  "unknownError": "Unknown error",
+  "exchangeDetailsTitle": "Exchange Details",
+  "makeOfferTitle": "Make an Offer",
+  "offeringBookNameHint": "Book you are offering",
+  "offeringBookStateTitle": "State of your book",
+  "makeOfferButton": "Make Offer",
+  "offerMadeSuccessfully": "Offer made successfully!",
+  "failedToMakeOffer": "Failed to make offer.",
+  "userNotLoggedInError": "You must be logged in to make an offer.",
+  "currentOffersTitle": "Current Offers for this Exchange",
+  "offeredBook": "Offered Book",
+  "offeredBookState": "State"
 }

@@ -17,31 +17,6 @@
       "username": "Lucas",
       "email": "lucas@email.com",
       "password": "123456"
-    },
-    {
-      "id": "5437",
-      "username": "maria@email.com",
-      "password": "123456"
-    },
-    {
-      "id": "0523",
-      "username": "maria@email.com",
-      "password": "123456"
-    },
-    {
-      "id": "5a83",
-      "username": "maria@email.com",
-      "password": "123456"
-    },
-    {
-      "id": "923c",
-      "username": "maria@email.com",
-      "password": "123456"
-    },
-    {
-      "id": "5a35",
-      "username": "maria@email.com",
-      "password": "123456"
     }
   ],
   "trocas": [
@@ -54,14 +29,19 @@
       "sugested": "O Caminho dos Reis, O nome do vento",
       "offerings": [
         {
+          "userId": 2,
           "book": "O caminho dos reis",
-          "book_state": "Conservado",
-          "userId": 2
+          "book_state": "Conservado"
         },
         {
+          "userId": 2,
           "book": "Vinland Saga 2",
-          "book_state": "Conservado",
-          "userId": 2
+          "book_state": "Conservado"
+        },
+        {
+          "userId": 3,
+          "book": "Teste",
+          "book_state": "Novo"
         }
       ],
       "id": "9e87"
@@ -149,7 +129,7 @@
     },
     {
       "id": "5478",
-      "exchange_id": 1931,
+      "exchange_id": 9,
       "solicitor_id": 1,
       "book_name": "Livro 1",
       "book_state": "Conservado",
@@ -159,7 +139,7 @@
     },
     {
       "id": "a6a1",
-      "exchange_id": 10000,
+      "exchange_id": 10,
       "solicitor_id": 1,
       "book_name": "Livro 1",
       "book_state": "Conservado",

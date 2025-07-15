@@ -386,12 +386,6 @@ abstract class AppLocalizations {
   /// **'Exchange registered successfully!'**
   String get exchangeRegisteredSuccess;
 
-  /// No description provided for @exchangeRegisteredError.
-  ///
-  /// In en, this message translates to:
-  /// **'Error registering exchange: {errorMessage}'**
-  String exchangeRegisteredError(Object errorMessage);
-
   /// No description provided for @validationRequiredField.
   ///
   /// In en, this message translates to:
@@ -409,6 +403,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please select at least one genre or fill in the suggestions.'**
   String get genresOrSuggestionsRequired;
+
+  /// No description provided for @exchangeRegisteredError.
+  ///
+  /// In en, this message translates to:
+  /// **'Error registering the exchange'**
+  String get exchangeRegisteredError;
+
+  /// No description provided for @unknownError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown error'**
+  String get unknownError;
+
+  /// No description provided for @exchangeDetailsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Exchange Details'**
+  String get exchangeDetailsTitle;
+
+  /// No description provided for @makeOfferTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Make an Offer'**
+  String get makeOfferTitle;
+
+  /// No description provided for @offeringBookNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Book you are offering'**
+  String get offeringBookNameHint;
+
+  /// No description provided for @offeringBookStateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'State of your book'**
+  String get offeringBookStateTitle;
+
+  /// No description provided for @makeOfferButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Make Offer'**
+  String get makeOfferButton;
+
+  /// No description provided for @offerMadeSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Offer made successfully!'**
+  String get offerMadeSuccessfully;
+
+  /// No description provided for @failedToMakeOffer.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to make offer.'**
+  String get failedToMakeOffer;
+
+  /// No description provided for @userNotLoggedInError.
+  ///
+  /// In en, this message translates to:
+  /// **'You must be logged in to make an offer.'**
+  String get userNotLoggedInError;
+
+  /// No description provided for @currentOffersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Offers for this Exchange'**
+  String get currentOffersTitle;
+
+  /// No description provided for @offeredBook.
+  ///
+  /// In en, this message translates to:
+  /// **'Offered Book'**
+  String get offeredBook;
+
+  /// No description provided for @offeredBookState.
+  ///
+  /// In en, this message translates to:
+  /// **'State'**
+  String get offeredBookState;
 }
 
 class _AppLocalizationsDelegate

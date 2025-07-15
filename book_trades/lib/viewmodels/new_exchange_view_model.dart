@@ -89,6 +89,15 @@ class NewExchangeViewModel extends ChangeNotifier {
         throw Exception("genresOrSuggestionsRequired");
       }
 
+      final allExchanges = await _repository.getAllExchanges();
+      int nextExchangeId = 1;
+      if (allExchanges.isNotEmpty) {
+        nextExchangeId = allExchanges
+            .map((e) => e.exchangeId ?? 0)
+            .reduce((a, b) => a > b ? a : b) +
+            1;
+      }
+
       String searchingForValue;
       String sugestedValue = suggestionsController.text.trim();
 
@@ -102,7 +111,7 @@ class NewExchangeViewModel extends ChangeNotifier {
       }
 
       final newExchange = Exchange(
-        exchangeId: 0,
+        exchangeId: nextExchangeId,
         solicitorId: solicitorId,
         bookName: bookNameController.text.trim(),
         bookState: _selectedBookState!,
@@ -113,25 +122,22 @@ class NewExchangeViewModel extends ChangeNotifier {
 
       await _repository.addExchange(newExchange);
       _successMessage = "exchangeRegisteredSuccess";
-      _resetForm();
+      notifyListeners(); // Notifica para exibir o toast de sucesso
+
+      // AGORA: Atrasar o reset do formulário para dar tempo ao toast
+      Future.delayed(const Duration(seconds: 2), () {
+        _resetForm(); // Reseta o formulário e limpa as mensagens
+      });
+
 
     } catch (e) {
-      if (e.toString().contains("bookNameRequired")) {
-        _errorMessage = "validationRequiredField";
-      } else if (e.toString().contains("bookStateRequired")) {
-        _errorMessage = "validationSelectState";
-      } else if (e.toString().contains("suggestionsRequired")) {
-        _errorMessage = "validationRequiredField";
-      } else if (e.toString().contains("genresOrSuggestionsRequired")) {
-        _errorMessage = "Por favor, selecione pelo menos um gênero ou preencha as sugestões.";
-      }
-      else {
-        _errorMessage = "exchangeRegisteredError";
-        debugPrint("Erro ao cadastrar troca: $e");
-      }
+      _errorMessage = "exchangeRegisteredError";
+      debugPrint("Erro detalhado ao cadastrar troca: $e");
+      notifyListeners(); // Notifica para exibir o toast de erro imediatamente
     } finally {
       _isLoading = false;
-      notifyListeners();
+      // Removido notifyListeners() daqui para controlar o reset após o delay.
+      // Ele já é chamado no try/catch e dentro do Future.delayed.
     }
   }
 
@@ -143,7 +149,7 @@ class NewExchangeViewModel extends ChangeNotifier {
     _selectedGenres = [];
     _errorMessage = null;
     _successMessage = null;
-    notifyListeners();
+    notifyListeners(); // Notifica para o reset da UI
   }
 
   void clearSuccessMessage() {

@@ -20,7 +20,6 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
     final viewModel = Provider.of<MainViewModel>(context, listen: false);
 
-    // Verifica se já existe login salvo e pula login se tiver
     Future.microtask(() => viewModel.checkSavedLogin(context));
 
     viewModel.addListener(() {
@@ -63,11 +62,15 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<MainViewModel>(context);
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(AppLocalizations.of(context)!.login_page),
+        title: Text(
+          AppLocalizations.of(context)!.login_page,
+          style: TextStyle(color: colorScheme.onSurface),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -83,28 +86,64 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         TextFormField(
                           controller: viewModel.usernameController,
+                          // style: TextStyle(color: colorScheme.onSurface), // Remove this, theme handles it
                           decoration: InputDecoration(
                             labelText: AppLocalizations.of(context)!.username,
+                            // labelStyle: TextStyle(color: colorScheme.onSurfaceVariant), // Remove this, theme handles it
                             border: const OutlineInputBorder(),
-                            prefixIcon: const Icon(Icons.person),
+                            prefixIcon: const Icon( // Keep the icon, but remove explicit color
+                              Icons.person,
+                              // color: colorScheme.onSurfaceVariant, // Remove this, theme handles it
+                            ),
                             errorText: _getErrorMessage(
                               viewModel.usernameError,
                               viewModel.customError,
                             ),
+                            // Remove explicit border styles, theme handles them
+                            // enabledBorder: OutlineInputBorder(
+                            //   borderSide: BorderSide(color: colorScheme.outline),
+                            // ),
+                            // focusedBorder: OutlineInputBorder(
+                            //   borderSide: BorderSide(color: colorScheme.primary, width: 2.0),
+                            // ),
+                            // errorBorder: OutlineInputBorder(
+                            //   borderSide: BorderSide(color: colorScheme.error),
+                            // ),
+                            // focusedErrorBorder: OutlineInputBorder(
+                            //   borderSide: BorderSide(color: colorScheme.error, width: 2.0),
+                            // ),
                           ),
                         ),
                         const SizedBox(height: 10),
                         TextFormField(
                           controller: viewModel.passwordController,
                           obscureText: true,
+                          // style: TextStyle(color: colorScheme.onSurface), // Remove this, theme handles it
                           decoration: InputDecoration(
                             labelText: AppLocalizations.of(context)!.password,
+                            // labelStyle: TextStyle(color: colorScheme.onSurfaceVariant), // Remove this, theme handles it
                             border: const OutlineInputBorder(),
-                            prefixIcon: const Icon(Icons.lock),
+                            prefixIcon: const Icon( // Keep the icon, but remove explicit color
+                              Icons.lock,
+                              // color: colorScheme.onSurfaceVariant, // Remove this, theme handles it
+                            ),
                             errorText: _getErrorMessage(
                               viewModel.passwordError,
                               viewModel.customError,
                             ),
+                            // Remove explicit border styles, theme handles them
+                            // enabledBorder: OutlineInputBorder(
+                            //   borderSide: BorderSide(color: colorScheme.outline),
+                            // ),
+                            // focusedBorder: OutlineInputBorder(
+                            //   borderSide: BorderSide(color: colorScheme.primary, width: 2.0),
+                            // ),
+                            // errorBorder: OutlineInputBorder(
+                            //   borderSide: BorderSide(color: colorScheme.error),
+                            // ),
+                            // focusedErrorBorder: OutlineInputBorder(
+                            //   borderSide: BorderSide(color: colorScheme.error, width: 2.0),
+                            // ),
                           ),
                         ),
                         const SizedBox(height: 10),
@@ -112,13 +151,20 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             FilledButton(
-                              onPressed:
-                                  () => viewModel.performLogin(onLoginSuccess),
+                              onPressed: () => viewModel.performLogin(onLoginSuccess),
+                              style: FilledButton.styleFrom(
+                                backgroundColor: colorScheme.primary,
+                                foregroundColor: colorScheme.onPrimary,
+                              ),
                               child: Text(AppLocalizations.of(context)!.login),
                             ),
                             const SizedBox(width: 20),
                             FilledButton(
                               onPressed: () => viewModel.clearLogin(),
+                              style: FilledButton.styleFrom(
+                                backgroundColor: colorScheme.secondary,
+                                foregroundColor: colorScheme.onSecondary,
+                              ),
                               child: Text(AppLocalizations.of(context)!.clear),
                             ),
                           ],

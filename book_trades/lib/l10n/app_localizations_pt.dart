@@ -159,11 +159,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get exchangeRegisteredSuccess => 'Troca cadastrada com sucesso!';
 
   @override
-  String exchangeRegisteredError(Object errorMessage) {
-    return 'Erro ao cadastrar troca: $errorMessage';
-  }
-
-  @override
   String get validationRequiredField => 'Este campo é obrigatório.';
 
   @override
@@ -173,4 +168,44 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get genresOrSuggestionsRequired =>
       'Por favor, selecione pelo menos um gênero ou preencha as sugestões.';
+
+  @override
+  String get exchangeRegisteredError => 'Erro ao registrar troca.';
+
+  @override
+  String get unknownError => 'Ocorreu um erro desconhecido.';
+
+  @override
+  String get exchangeDetailsTitle => 'Detalhes da Troca';
+
+  @override
+  String get makeOfferTitle => 'Fazer uma Oferta';
+
+  @override
+  String get offeringBookNameHint => 'Nome do livro que você oferece';
+
+  @override
+  String get offeringBookStateTitle => 'Estado do seu livro';
+
+  @override
+  String get makeOfferButton => 'Fazer Oferta';
+
+  @override
+  String get offerMadeSuccessfully => 'Oferta realizada com sucesso!';
+
+  @override
+  String get failedToMakeOffer => 'Falha ao fazer oferta.';
+
+  @override
+  String get userNotLoggedInError =>
+      'Você precisa estar logado para fazer uma oferta.';
+
+  @override
+  String get currentOffersTitle => 'Ofertas Atuais para esta Troca';
+
+  @override
+  String get offeredBook => 'Livro Ofertado';
+
+  @override
+  String get offeredBookState => 'Estado';
 }
