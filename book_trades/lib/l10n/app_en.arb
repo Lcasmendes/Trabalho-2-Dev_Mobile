@@ -18,6 +18,7 @@
   "navBarMyExchanges": "My Exchanges",
   "navBarNewExchange": "New Exchange",
   "mainPageTitle": "Exchanges",
+  "myExchangesPageTitle": "My Exchanges",
   "mainPageWelcomeMessage": "Welcome to the Main Page!",
   "noExchangesAvailable": "No exchanges available.",
   "errorLoadingExchanges": "Error loading exchanges: {errorMessage}",

@@ -6,7 +6,6 @@ import 'package:projeto2/repository/floor/app_database.dart';
 import 'package:projeto2/repository/login_try_repository.dart';
 import 'package:projeto2/repository/user_repository.dart';
 import 'package:projeto2/repository/exchange_repository.dart';
-import 'package:projeto2/viewmodels/login_tries_view_model.dart';
 import 'package:projeto2/viewmodels/exchanges_view_model.dart';
 import 'package:projeto2/viewmodels/login_view_model.dart';
 import 'package:projeto2/viewmodels/new_exchange_view_model.dart';
@@ -31,11 +30,6 @@ void main() async {
         ChangeNotifierProvider(
           create: (context) => MainViewModel(
             context.read<UserRepository>(),
-            context.read<SavedLoginRepository>(),
-          ),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => LoginTriesViewModel(
             context.read<SavedLoginRepository>(),
           ),
         ),

@@ -5,6 +5,8 @@ import 'package:projeto2/repository/user_repository.dart';
 import 'package:projeto2/ui/login/form_error.dart';
 import 'package:projeto2/ui/main/main_page.dart';
 
+import '../utils/navigation_bar.dart';
+
 class MainViewModel extends ChangeNotifier {
   final UserRepository userRepository;
   final SavedLoginRepository savedLoginRepository;
@@ -87,7 +89,7 @@ class MainViewModel extends ChangeNotifier {
     if (saved != null) {
       Navigator.of(
         context,
-      ).pushReplacement(MaterialPageRoute(builder: (_) => const MainPage()));
+      ).pushReplacement(MaterialPageRoute(builder: (_) => CustomNavBar()));
     }
   }
 }

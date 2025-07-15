@@ -212,6 +212,12 @@ abstract class AppLocalizations {
   /// **'Exchanges'**
   String get mainPageTitle;
 
+  /// No description provided for @myExchangesPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'My Exchanges'**
+  String get myExchangesPageTitle;
+
   /// No description provided for @mainPageWelcomeMessage.
   ///
   /// In en, this message translates to:

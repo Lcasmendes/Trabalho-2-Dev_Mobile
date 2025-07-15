@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../l10n/app_localizations.dart';
 import '../../viewmodels/exchanges_view_model.dart';
-import '../components/navigation_bar.dart';
+import '../../utils/navigation_bar.dart';
 import '../components/exchange_card.dart';
 import '../components/stateful_content.dart';
 
@@ -14,7 +14,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 0;
   final TextEditingController _searchController = TextEditingController();
 
   @override
@@ -35,12 +34,6 @@ class _MainPageState extends State<MainPage> {
 
   void _onSearchChanged() {
     Provider.of<ExchangesViewModel>(context, listen: false).setSearchQuery(_searchController.text);
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
   }
 
   @override
@@ -91,10 +84,6 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
         ],
-      ),
-      bottomNavigationBar: CustomNavBar(
-        selectedIndex: _selectedIndex,
-        onItemTapped: _onItemTapped,
       ),
     );
   }

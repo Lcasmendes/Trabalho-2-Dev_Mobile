@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:projeto2/l10n/app_localizations.dart';
 import 'package:projeto2/ui/loading_dialog.dart';
 import 'package:projeto2/ui/login/form_error.dart';
-import 'package:projeto2/ui/main/main_page.dart';
-import 'package:projeto2/ui/tries/login_tries_page.dart';
 import 'package:projeto2/viewmodels/login_view_model.dart';
 import 'package:provider/provider.dart';
+
+import '../../utils/navigation_bar.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -41,13 +41,7 @@ class _LoginPageState extends State<LoginPage> {
   void onLoginSuccess() {
     Navigator.of(
       context,
-    ).pushReplacement(MaterialPageRoute(builder: (_) => const MainPage()));
-  }
-
-  void onClickInLoginTries() {
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute(builder: (_) => const LoginTriesPage()));
+    ).pushReplacement(MaterialPageRoute(builder: (_) => CustomNavBar()));
   }
 
   String? _getErrorMessage(FormError error, String? custom) {
@@ -128,15 +122,6 @@ class _LoginPageState extends State<LoginPage> {
                               child: Text(AppLocalizations.of(context)!.clear),
                             ),
                           ],
-                        ),
-                        const SizedBox(height: 50),
-                        FilledButton(
-                          onPressed: onClickInLoginTries,
-                          child: Text(
-                            AppLocalizations.of(
-                              context,
-                            )!.view_log_of_login_tries,
-                          ),
                         ),
                       ],
                     ),
