@@ -3,9 +3,13 @@ import 'package:projeto2/repository/exchange_data.dart';
 import 'package:projeto2/repository/exchange_repository.dart';
 import 'package:projeto2/repository/floor/login_try_dao.dart';
 
+import '../repository/login_try_repository.dart';
+import '../ui/login/login_page.dart';
+
 class NewExchangeViewModel extends ChangeNotifier {
   final ExchangeRepository _repository;
   final SavedLoginDao _savedLoginDao;
+  final SavedLoginRepository savedLoginRepository;
 
   final TextEditingController bookNameController = TextEditingController();
   final TextEditingController suggestionsController = TextEditingController();
@@ -35,7 +39,7 @@ class NewExchangeViewModel extends ChangeNotifier {
   List<String> get availableGenres => _availableGenres;
   List<String> get selectedGenres => _selectedGenres;
 
-  NewExchangeViewModel(this._repository, this._savedLoginDao);
+  NewExchangeViewModel(this._repository, this._savedLoginDao, this.savedLoginRepository);
 
   void setSelectedBookState(String? state) {
     _selectedBookState = state;
@@ -167,5 +171,12 @@ class NewExchangeViewModel extends ChangeNotifier {
     bookNameController.dispose();
     suggestionsController.dispose();
     super.dispose();
+  }
+
+  Future<void> performLogout(BuildContext context) async {
+    // delete saved login
+    await savedLoginRepository.deleteAll();
+    // navigate to login
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => LoginPage()));
   }
 }

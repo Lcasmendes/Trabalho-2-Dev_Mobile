@@ -72,6 +72,13 @@ class _NewExchangePageState extends State<NewExchangePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(localizations.newExchangePageTitle),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.logout),
+              tooltip: localizations.logout,
+              onPressed: () => viewModel.performLogout(context),
+            ),
+          ]
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),

@@ -12,7 +12,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login_page => 'Login Page';
 
   @override
-  String get username => 'Username';
+  String get email => 'Email';
 
   @override
   String get password => 'Password';
@@ -21,16 +21,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'Login';
 
   @override
-  String get clear => 'Clear';
+  String get create_account_label => 'Create Account';
 
   @override
   String get empty => 'Empty';
 
   @override
-  String get wrong_username => 'Wrong user name';
+  String get wrong_email_or_pass => 'Wrong email or password';
 
   @override
-  String get wrong_password => 'Wrong password';
+  String get error => 'Error';
 
   @override
   String get main_page => 'Main Page';

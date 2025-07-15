@@ -15,7 +15,7 @@ class UserRepository {
     }
   }
 
-  Future<(String, String, String)> login(
+  Future<(String, String)> login(
     String username,
     String password,
   ) async {
@@ -32,17 +32,17 @@ class UserRepository {
         if (dataList.isNotEmpty) {
           // Pega o primeiro usuário que bateu com o filtro
           final responseData = ResponseData.fromJson(dataList[0]);
-          return ('success', responseData.id, responseData.username);
+          return ('success', responseData.id);
         } else {
           // Nenhum usuário encontrado com email+senha
-          return ('failed', "", "");
+          return ('failed', "");
         }
       } else {
         throw Exception('failed status code');
       }
     } catch (e) {
       print("error $e");
-      return ('failed_connection', "", "");
+      return ('failed_connection', "");
     }
   }
 

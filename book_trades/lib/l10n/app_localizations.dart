@@ -104,11 +104,11 @@ abstract class AppLocalizations {
   /// **'Login Page'**
   String get login_page;
 
-  /// No description provided for @username.
+  /// No description provided for @email.
   ///
   /// In en, this message translates to:
-  /// **'Username'**
-  String get username;
+  /// **'Email'**
+  String get email;
 
   /// No description provided for @password.
   ///
@@ -122,11 +122,11 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get login;
 
-  /// No description provided for @clear.
+  /// No description provided for @create_account_label.
   ///
   /// In en, this message translates to:
-  /// **'Clear'**
-  String get clear;
+  /// **'Create Account'**
+  String get create_account_label;
 
   /// No description provided for @empty.
   ///
@@ -134,17 +134,17 @@ abstract class AppLocalizations {
   /// **'Empty'**
   String get empty;
 
-  /// No description provided for @wrong_username.
+  /// No description provided for @wrong_email_or_pass.
   ///
   /// In en, this message translates to:
-  /// **'Wrong user name'**
-  String get wrong_username;
+  /// **'Wrong email or password'**
+  String get wrong_email_or_pass;
 
-  /// No description provided for @wrong_password.
+  /// No description provided for @error.
   ///
   /// In en, this message translates to:
-  /// **'Wrong password'**
-  String get wrong_password;
+  /// **'Error'**
+  String get error;
 
   /// No description provided for @main_page.
   ///

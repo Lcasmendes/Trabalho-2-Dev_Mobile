@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto2/repository/floor/login_try_dao.dart';
+import 'package:projeto2/viewmodels/my_exchanges_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:projeto2/ui/app.dart';
 import 'package:projeto2/repository/floor/app_database.dart';
@@ -37,12 +38,21 @@ void main() async {
           create: (context) => ExchangesViewModel(
             context.read<ExchangeRepository>(),
             context.read<SavedLoginDao>(),
+            context.read<SavedLoginRepository>(),
           ),
         ),
         ChangeNotifierProvider(
           create: (context) => NewExchangeViewModel(
             context.read<ExchangeRepository>(),
             context.read<SavedLoginDao>(),
+            context.read<SavedLoginRepository>(),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => MyExchangesViewModel(
+            context.read<ExchangeRepository>(),
+            context.read<SavedLoginDao>(),
+            context.read<SavedLoginRepository>(),
           ),
         ),
       ],

@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:projeto2/repository/exchange_data.dart';
 import 'package:projeto2/repository/exchange_repository.dart';
 import 'package:projeto2/repository/floor/login_try_dao.dart';
+import 'package:projeto2/ui/login/login_page.dart';
+
+import '../repository/login_try_repository.dart';
 
 class MyExchangesViewModel extends ChangeNotifier {
   final ExchangeRepository _repository;
   final SavedLoginDao _savedLoginDao;
+  final SavedLoginRepository savedLoginRepository;
 
   List<Exchange> _allExchanges = [];
   List<Exchange> _displayedExchanges = [];
@@ -18,7 +22,7 @@ class MyExchangesViewModel extends ChangeNotifier {
   String? get errorMessage => _errorMessage;
   String get currentSearchQuery => _currentSearchQuery;
 
-  MyExchangesViewModel(this._repository, this._savedLoginDao);
+  MyExchangesViewModel(this._repository, this._savedLoginDao, this.savedLoginRepository);
 
   Future<void> fetchExchanges() async {
     _isLoading = true;
@@ -75,5 +79,12 @@ class MyExchangesViewModel extends ChangeNotifier {
                 offering.bookState.toLowerCase().contains(queryLower));
       }).toList();
     }
+  }
+
+  Future<void> performLogout(BuildContext context) async {
+    // delete saved login
+    await savedLoginRepository.deleteAll();
+    // navigate to login
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => LoginPage()));
   }
 }

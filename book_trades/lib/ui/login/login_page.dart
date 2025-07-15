@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto2/l10n/app_localizations.dart';
 import 'package:projeto2/ui/loading_dialog.dart';
-import 'package:projeto2/ui/login/form_error.dart';
 import 'package:projeto2/viewmodels/login_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -43,18 +42,16 @@ class _LoginPageState extends State<LoginPage> {
     ).pushReplacement(MaterialPageRoute(builder: (_) => CustomNavBar()));
   }
 
-  String? _getErrorMessage(FormError error, String? custom) {
+  String? _getErrorMessage(String error) {
     final localizations = AppLocalizations.of(context)!;
     switch (error) {
-      case FormError.emptyField:
+      case "empty":
         return localizations.empty;
-      case FormError.wrongUsername:
-        return localizations.wrong_username;
-      case FormError.wrongPassword:
-        return localizations.wrong_password;
-      case FormError.custom:
-        return custom ?? "";
-      case FormError.none:
+      case "wrong_email_or_pass":
+        return localizations.wrong_email_or_pass;
+      case "error":
+        return localizations.error;
+      case "":
         return null;
     }
   }
@@ -73,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.all(50.0),
         child: LayoutBuilder(
           builder: (context, constraints) {
             return SingleChildScrollView(
@@ -86,68 +83,35 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         TextFormField(
                           controller: viewModel.usernameController,
-                          // style: TextStyle(color: colorScheme.onSurface), // Remove this, theme handles it
                           decoration: InputDecoration(
-                            labelText: AppLocalizations.of(context)!.username,
-                            // labelStyle: TextStyle(color: colorScheme.onSurfaceVariant), // Remove this, theme handles it
+                            labelText: AppLocalizations.of(context)!.email,
                             border: const OutlineInputBorder(),
-                            prefixIcon: const Icon( // Keep the icon, but remove explicit color
+                            prefixIcon: const Icon(
                               Icons.person,
-                              // color: colorScheme.onSurfaceVariant, // Remove this, theme handles it
                             ),
                             errorText: _getErrorMessage(
                               viewModel.usernameError,
-                              viewModel.customError,
                             ),
-                            // Remove explicit border styles, theme handles them
-                            // enabledBorder: OutlineInputBorder(
-                            //   borderSide: BorderSide(color: colorScheme.outline),
-                            // ),
-                            // focusedBorder: OutlineInputBorder(
-                            //   borderSide: BorderSide(color: colorScheme.primary, width: 2.0),
-                            // ),
-                            // errorBorder: OutlineInputBorder(
-                            //   borderSide: BorderSide(color: colorScheme.error),
-                            // ),
-                            // focusedErrorBorder: OutlineInputBorder(
-                            //   borderSide: BorderSide(color: colorScheme.error, width: 2.0),
-                            // ),
                           ),
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 20),
                         TextFormField(
                           controller: viewModel.passwordController,
                           obscureText: true,
-                          // style: TextStyle(color: colorScheme.onSurface), // Remove this, theme handles it
                           decoration: InputDecoration(
                             labelText: AppLocalizations.of(context)!.password,
-                            // labelStyle: TextStyle(color: colorScheme.onSurfaceVariant), // Remove this, theme handles it
                             border: const OutlineInputBorder(),
-                            prefixIcon: const Icon( // Keep the icon, but remove explicit color
+                            prefixIcon: const Icon(
                               Icons.lock,
-                              // color: colorScheme.onSurfaceVariant, // Remove this, theme handles it
                             ),
                             errorText: _getErrorMessage(
                               viewModel.passwordError,
-                              viewModel.customError,
                             ),
-                            // Remove explicit border styles, theme handles them
-                            // enabledBorder: OutlineInputBorder(
-                            //   borderSide: BorderSide(color: colorScheme.outline),
-                            // ),
-                            // focusedBorder: OutlineInputBorder(
-                            //   borderSide: BorderSide(color: colorScheme.primary, width: 2.0),
-                            // ),
-                            // errorBorder: OutlineInputBorder(
-                            //   borderSide: BorderSide(color: colorScheme.error),
-                            // ),
-                            // focusedErrorBorder: OutlineInputBorder(
-                            //   borderSide: BorderSide(color: colorScheme.error, width: 2.0),
-                            // ),
                           ),
                         ),
-                        const SizedBox(height: 10),
-                        Row(
+                        const SizedBox(height: 20),
+                        const SizedBox(height: 20),
+                        Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             FilledButton(
@@ -158,14 +122,14 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               child: Text(AppLocalizations.of(context)!.login),
                             ),
-                            const SizedBox(width: 20),
+                            const SizedBox(height: 20),
                             FilledButton(
-                              onPressed: () => viewModel.clearLogin(),
+                              onPressed: () => viewModel.createAccount(),
                               style: FilledButton.styleFrom(
                                 backgroundColor: colorScheme.secondary,
                                 foregroundColor: colorScheme.onSecondary,
                               ),
-                              child: Text(AppLocalizations.of(context)!.clear),
+                              child: Text(AppLocalizations.of(context)!.create_account_label),
                             ),
                           ],
                         ),

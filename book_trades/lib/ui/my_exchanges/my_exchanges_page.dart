@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../l10n/app_localizations.dart';
-import '../../viewmodels/exchanges_view_model.dart';
-import '../../utils/navigation_bar.dart';
+import '../../viewmodels/my_exchanges_view_model.dart';
 import '../components/exchange_card.dart';
 import '../components/stateful_content.dart';
 
@@ -20,7 +19,7 @@ class _MyExchangesPageState extends State<MyExchangesPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<ExchangesViewModel>(context, listen: false).fetchExchanges();
+      Provider.of<MyExchangesViewModel>(context, listen: false).fetchExchanges();
     });
     _searchController.addListener(_onSearchChanged);
   }
@@ -33,18 +32,25 @@ class _MyExchangesPageState extends State<MyExchangesPage> {
   }
 
   void _onSearchChanged() {
-    Provider.of<ExchangesViewModel>(context, listen: false).setSearchQuery(_searchController.text);
+    Provider.of<MyExchangesViewModel>(context, listen: false).setSearchQuery(_searchController.text);
   }
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<ExchangesViewModel>(context);
+    final viewModel = Provider.of<MyExchangesViewModel>(context);
     final localizations = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(localizations.myExchangesPageTitle),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: localizations.logout,
+            onPressed: () => viewModel.performLogout(context),
+          ),
+        ]
       ),
       body: Column(
         children: [
