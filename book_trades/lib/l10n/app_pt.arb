@@ -64,13 +64,20 @@
   "suggestionsHint": "Sugestões de troca",
   "registerButton": "Cadastrar",
   "exchangeRegisteredSuccess": "Troca cadastrada com sucesso!",
-  "exchangeRegisteredError": "Erro ao cadastrar troca: {errorMessage}",
-  "@exchangeRegisteredError": {
-    "placeholders": {
-      "errorMessage": {}
-    }
-  },
   "validationRequiredField": "Este campo é obrigatório.",
   "validationSelectState": "Por favor, selecione um estado para o livro.",
-  "genresOrSuggestionsRequired": "Por favor, selecione pelo menos um gênero ou preencha as sugestões."
+  "genresOrSuggestionsRequired": "Por favor, selecione pelo menos um gênero ou preencha as sugestões.",
+  "exchangeRegisteredError": "Erro ao registrar troca.",
+  "unknownError": "Ocorreu um erro desconhecido.",
+  "exchangeDetailsTitle": "Detalhes da Troca",
+  "makeOfferTitle": "Fazer uma Oferta",
+  "offeringBookNameHint": "Nome do livro que você oferece",
+  "offeringBookStateTitle": "Estado do seu livro",
+  "makeOfferButton": "Fazer Oferta",
+  "offerMadeSuccessfully": "Oferta realizada com sucesso!",
+  "failedToMakeOffer": "Falha ao fazer oferta.",
+  "userNotLoggedInError": "Você precisa estar logado para fazer uma oferta.",
+  "currentOffersTitle": "Ofertas Atuais para esta Troca",
+  "offeredBook": "Livro Ofertado",
+  "offeredBookState": "Estado"
 }

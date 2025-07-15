@@ -159,11 +159,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get exchangeRegisteredSuccess => 'Exchange registered successfully!';
 
   @override
-  String exchangeRegisteredError(Object errorMessage) {
-    return 'Error registering exchange: $errorMessage';
-  }
-
-  @override
   String get validationRequiredField => 'This field is required.';
 
   @override
@@ -172,4 +167,43 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get genresOrSuggestionsRequired =>
       'Please select at least one genre or fill in the suggestions.';
+
+  @override
+  String get exchangeRegisteredError => 'Error registering the exchange';
+
+  @override
+  String get unknownError => 'Unknown error';
+
+  @override
+  String get exchangeDetailsTitle => 'Exchange Details';
+
+  @override
+  String get makeOfferTitle => 'Make an Offer';
+
+  @override
+  String get offeringBookNameHint => 'Book you are offering';
+
+  @override
+  String get offeringBookStateTitle => 'State of your book';
+
+  @override
+  String get makeOfferButton => 'Make Offer';
+
+  @override
+  String get offerMadeSuccessfully => 'Offer made successfully!';
+
+  @override
+  String get failedToMakeOffer => 'Failed to make offer.';
+
+  @override
+  String get userNotLoggedInError => 'You must be logged in to make an offer.';
+
+  @override
+  String get currentOffersTitle => 'Current Offers for this Exchange';
+
+  @override
+  String get offeredBook => 'Offered Book';
+
+  @override
+  String get offeredBookState => 'State';
 }
