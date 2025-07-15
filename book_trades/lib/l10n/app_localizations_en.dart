@@ -66,6 +66,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get mainPageTitle => 'Exchanges';
 
   @override
+  String get myExchangesPageTitle => 'My Exchanges';
+
+  @override
   String get mainPageWelcomeMessage => 'Welcome to the Main Page!';
 
   @override

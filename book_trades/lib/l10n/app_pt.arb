@@ -19,6 +19,7 @@
   "navBarNewExchange": "Nova Troca",
   "navBarTries": "Tentativas",
   "mainPageTitle": "Trocas",
+  "myExchangesPageTitle": "Minhas Trocas",
   "mainPageWelcomeMessage": "Bem-vindo à Página Principal!",
   "noExchangesAvailable": "Nenhuma troca disponível.",
   "errorLoadingExchanges": "Erro ao carregar trocas: {errorMessage}",

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../l10n/app_localizations.dart';
 import '../../viewmodels/new_exchange_view_model.dart';
-import '../components/navigation_bar.dart';
-import '../../utils/app_navigator.dart'; // Importe o AppNavigator
 
 class NewExchangePage extends StatefulWidget {
   const NewExchangePage({super.key});
@@ -13,15 +11,8 @@ class NewExchangePage extends StatefulWidget {
 }
 
 class _NewExchangePageState extends State<NewExchangePage> {
-  int _selectedIndex = 2;
   final _formKey = GlobalKey<FormState>();
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    AppNavigator.navigateToPage(context, index); // Adição crucial aqui
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +44,7 @@ class _NewExchangePageState extends State<NewExchangePage> {
         }
 
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(displayMessage!)),
+          SnackBar(content: Text(displayMessage)),
         );
         viewModel.clearErrorMessage();
       }
@@ -141,7 +132,7 @@ class _NewExchangePageState extends State<NewExchangePage> {
                       viewModel.toggleGenre(genre, isSelected);
                     },
                   );
-                }).toList(),
+                }),
               const SizedBox(height: 24),
 
               TextFormField(
@@ -191,10 +182,6 @@ class _NewExchangePageState extends State<NewExchangePage> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: CustomNavBar(
-        selectedIndex: _selectedIndex,
-        onItemTapped: _onItemTapped,
       ),
     );
   }

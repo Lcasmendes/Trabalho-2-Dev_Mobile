@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
-import '../../l10n/app_localizations.dart';
+import 'package:projeto2/ui/my_exchanges/my_exchanges_page.dart';
+import '../l10n/app_localizations.dart';
+import '../ui/main/main_page.dart';
+import '../ui/new_exchanges/new_exchange_page.dart';
 
 class CustomNavBar extends StatefulWidget {
-  final int selectedIndex;
-  final Function(int) onItemTapped;
-
-  const CustomNavBar({
-    Key? key,
-    required this.selectedIndex,
-    required this.onItemTapped,
-  }) : super(key: key);
-
   @override
-  State<CustomNavBar> createState() => _CustomNavBarState();
+  _CustomNavBarState createState() => _CustomNavBarState();
 }
 
 class _CustomNavBarState extends State<CustomNavBar> {
+  int _selectedIndex = 0;
+
+  static List<Widget> _widgetOptions = [
+    MainPage(),
+    MyExchangesPage(),
+    NewExchangePage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
     final colorScheme = Theme.of(context).colorScheme;
 
-    return BottomNavigationBar(
+    return Scaffold(
+    body: _widgetOptions.elementAt(_selectedIndex),
+    bottomNavigationBar: BottomNavigationBar(
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: const Icon(Icons.home),
@@ -36,13 +40,20 @@ class _CustomNavBarState extends State<CustomNavBar> {
           label: localizations.navBarNewExchange,
         ),
       ],
-      currentIndex: widget.selectedIndex,
+      currentIndex: _selectedIndex,
       selectedItemColor: colorScheme.primary,
       unselectedItemColor: colorScheme.onSurfaceVariant,
       backgroundColor: colorScheme.surfaceContainerHigh,
-      onTap: widget.onItemTapped,
+      onTap: _onItemTapped,
       type: BottomNavigationBarType.fixed,
+    )
     );
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 }
 
