@@ -78,5 +78,6 @@
   "userNotLoggedInError": "You must be logged in to make an offer.",
   "currentOffersTitle": "Current Offers for this Exchange",
   "offeredBook": "Offered Book",
-  "offeredBookState": "State"
+  "offeredBookState": "State",
+  "offersTitle": "Offers"
 }

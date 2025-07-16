@@ -208,4 +208,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get offeredBookState => 'Estado';
+
+  @override
+  String get offersTitle => 'Ofertas';
 }

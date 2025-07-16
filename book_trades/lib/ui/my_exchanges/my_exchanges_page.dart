@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../../l10n/app_localizations.dart';
 import '../../viewmodels/my_exchanges_view_model.dart';
 import '../components/exchange_card.dart';
+import '../components/my_exchanges_card.dart';
 import '../components/stateful_content.dart';
 
 class MyExchangesPage extends StatefulWidget {
@@ -84,7 +85,7 @@ class _MyExchangesPageState extends State<MyExchangesPage> {
                 itemCount: viewModel.exchanges.length,
                 itemBuilder: (context, index) {
                   final exchange = viewModel.exchanges[index];
-                  return ExchangeCard(exchange: exchange);
+                  return MyExchangesCard(exchange: exchange);
                 },
               ),
             ),
