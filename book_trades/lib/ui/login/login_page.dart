@@ -81,6 +81,13 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
+                        // Icone de livro aberto como logo
+                        Icon(
+                          Icons.auto_stories,
+                          size: 100,
+                          color: colorScheme.primary,
+                        ),
+                        const SizedBox(height: 40),
                         TextFormField(
                           controller: viewModel.usernameController,
                           decoration: InputDecoration(

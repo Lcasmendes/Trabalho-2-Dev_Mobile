@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// No description provided for @login_page.
   ///
   /// In en, this message translates to:
-  /// **'Login Page'**
+  /// **'Book Trade'**
   String get login_page;
 
   /// No description provided for @email.

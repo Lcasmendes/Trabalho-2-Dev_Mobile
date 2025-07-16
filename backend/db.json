@@ -112,7 +112,13 @@
       "book_name": "Frieren",
       "book_state": "Seminovo",
       "exchange_id": 7,
-      "offerings": [],
+      "offerings": [
+        {
+          "userId": 3,
+          "book": "Rosa Sanguinaria",
+          "book_state": "Novo"
+        }
+      ],
       "searching_for": "Fantasia, Ficção científica",
       "solicitor_id": 1,
       "sugested": "Dungeon Meshi"
@@ -152,6 +158,16 @@
           "book_state": "Usado"
         }
       ]
+    },
+    {
+      "id": "7891",
+      "exchange_id": 11,
+      "solicitor_id": 3,
+      "book_name": "Rosa Sanguinaria",
+      "book_state": "Seminovo",
+      "searching_for": "Fantasia, Ficção científica",
+      "sugested": "",
+      "offerings": []
     }
   ]
 }

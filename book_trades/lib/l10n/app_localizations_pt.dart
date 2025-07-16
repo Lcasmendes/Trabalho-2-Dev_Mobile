@@ -9,7 +9,7 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
-  String get login_page => 'Página de Login';
+  String get login_page => 'Book Trade';
 
   @override
   String get email => 'Email';
