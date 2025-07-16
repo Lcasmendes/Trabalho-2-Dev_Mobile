@@ -206,4 +206,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get offeredBookState => 'State';
+
+  @override
+  String get offersTitle => 'Offers';
 }

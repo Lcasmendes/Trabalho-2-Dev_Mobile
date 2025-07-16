@@ -79,5 +79,6 @@
   "userNotLoggedInError": "Você precisa estar logado para fazer uma oferta.",
   "currentOffersTitle": "Ofertas Atuais para esta Troca",
   "offeredBook": "Livro Ofertado",
-  "offeredBookState": "Estado"
+  "offeredBookState": "Estado",
+  "offersTitle": "Ofertas"
 }
