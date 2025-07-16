@@ -1,4 +1,4 @@
-Projeto 1 - Desenvolvimento Móvel
+Projeto 2 - Desenvolvimento Móvel: Aplicativo "Book Trades"
 
 Alunos: 
 - Leo Rodrigues Aoki, RA 801926
