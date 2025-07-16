@@ -5,8 +5,9 @@ class ExchangeRepository {
   static const _BASE_URL = "http://10.0.2.2:3000";
   late final Dio _dio;
 
-  ExchangeRepository() {
-    _dio = Dio(BaseOptions(baseUrl: _BASE_URL));
+  // para os testes
+  ExchangeRepository({Dio? dioClient}) {
+    _dio = dioClient ?? Dio(BaseOptions(baseUrl: _BASE_URL));
   }
 
   Future<List<Exchange>> getAllExchanges() async {
@@ -18,8 +19,14 @@ class ExchangeRepository {
       } else {
         throw Exception('Failed to load exchanges: ${response.statusCode}');
       }
+    } on DioException catch (e) {
+      if (e.response != null) {
+        throw Exception('API error loading exchanges: ${e.response!.statusCode} - ${e.response!.data}');
+      } else {
+        throw Exception('Network error or failed to load exchanges: ${e.message}');
+      }
     } catch (e) {
-      throw Exception('Network error or failed to load exchanges: $e');
+      throw Exception('Unexpected error loading exchanges: $e');
     }
   }
 
@@ -39,7 +46,7 @@ class ExchangeRepository {
       if (e.response != null) {
         throw Exception('Failed to add exchange: ${e.response!.statusCode} - ${e.response!.data}');
       } else {
-        throw Exception('Network error or failed to add exchange: $e');
+        throw Exception('Network error or failed to add exchange: ${e.message}');
       }
     } catch (e) {
       throw Exception('Unexpected error adding exchange: $e');
@@ -48,7 +55,7 @@ class ExchangeRepository {
 
   Future<void> updateExchange(Exchange exchange) async {
     try {
-      if (exchange.id == null) {
+      if (exchange.id == null || exchange.id!.isEmpty) {
         throw Exception('Exchange primary ID (JSON Server ID) is required to update an exchange.');
       }
 

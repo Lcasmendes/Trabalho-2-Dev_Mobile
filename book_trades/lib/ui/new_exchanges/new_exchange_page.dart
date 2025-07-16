@@ -20,12 +20,14 @@ class _NewExchangePageState extends State<NewExchangePage> {
     final localizations = AppLocalizations.of(context)!;
 
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final TextTheme textTheme = Theme.of(context).textTheme; // Obter o TextTheme do contexto
+    final TextTheme textTheme = Theme.of(context).textTheme;
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (viewModel.successMessage != null) {
+        String displayMessage = _getSuccessLocalizedText(localizations, viewModel.successMessage!);
+
         Fluttertoast.showToast(
-          msg: localizations.exchangeRegisteredSuccess,
+          msg: displayMessage,
           toastLength: Toast.LENGTH_LONG,
           gravity: ToastGravity.BOTTOM,
           backgroundColor: colorScheme.secondary,
@@ -36,24 +38,7 @@ class _NewExchangePageState extends State<NewExchangePage> {
         viewModel.clearSuccessMessage();
       }
       if (viewModel.errorMessage != null) {
-        String messageKey = viewModel.errorMessage!;
-        String displayMessage;
-
-        if (messageKey == "validationRequiredField") {
-          displayMessage = localizations.validationRequiredField;
-        } else if (messageKey == "validationSelectState") {
-          displayMessage = localizations.validationSelectState;
-        } else if (messageKey == "suggestionsRequired") {
-          displayMessage = localizations.validationRequiredField;
-        } else if (messageKey == "genresOrSuggestionsRequired") {
-          displayMessage = localizations.genresOrSuggestionsRequired;
-        }
-        else if (messageKey == "exchangeRegisteredError") {
-          displayMessage = localizations.exchangeRegisteredError;
-        }
-        else {
-          displayMessage = localizations.unknownError;
-        }
+        String displayMessage = _getErrorLocalizedText(localizations, viewModel.errorMessage!);
 
         Fluttertoast.showToast(
           msg: displayMessage,
@@ -70,8 +55,8 @@ class _NewExchangePageState extends State<NewExchangePage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(localizations.newExchangePageTitle),
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text(localizations.newExchangePageTitle),
           actions: [
             IconButton(
               icon: const Icon(Icons.logout),
@@ -89,15 +74,15 @@ class _NewExchangePageState extends State<NewExchangePage> {
             children: [
               TextFormField(
                 controller: viewModel.bookNameController,
-                style: TextStyle(color: colorScheme.onSurface), // Define a cor do texto digitado
+                style: TextStyle(color: colorScheme.onSurface),
                 decoration: InputDecoration(
                   labelText: localizations.bookNameHint,
-                  labelStyle: TextStyle(color: colorScheme.onSurfaceVariant), // Cor do label
+                  labelStyle: TextStyle(color: colorScheme.onSurfaceVariant),
                   border: const OutlineInputBorder(),
-                  enabledBorder: OutlineInputBorder( // Cor da borda quando habilitado
+                  enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: colorScheme.outline),
                   ),
-                  focusedBorder: OutlineInputBorder( // Cor da borda quando focado
+                  focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: colorScheme.primary, width: 2.0),
                   ),
                 ),
@@ -112,14 +97,14 @@ class _NewExchangePageState extends State<NewExchangePage> {
 
               Text(
                 localizations.bookStateTitle,
-                style: textTheme.titleMedium?.copyWith(color: colorScheme.onSurface), // Cor para títulos de seção
+                style: textTheme.titleMedium?.copyWith(color: colorScheme.onSurface),
               ),
               RadioListTile<String>(
-                title: Text(localizations.stateNew, style: TextStyle(color: colorScheme.onSurface)), // Cor para o título do RadioListTile
+                title: Text(localizations.stateNew, style: TextStyle(color: colorScheme.onSurface)),
                 value: 'Novo',
                 groupValue: viewModel.selectedBookState,
                 onChanged: viewModel.setSelectedBookState,
-                activeColor: colorScheme.primary, // Cor do círculo quando selecionado
+                activeColor: colorScheme.primary,
               ),
               RadioListTile<String>(
                 title: Text(localizations.stateSemiNew, style: TextStyle(color: colorScheme.onSurface)),
@@ -146,14 +131,14 @@ class _NewExchangePageState extends State<NewExchangePage> {
 
               Text(
                 localizations.genresTitle,
-                style: textTheme.titleMedium?.copyWith(color: colorScheme.onSurface), // Cor para títulos de seção
+                style: textTheme.titleMedium?.copyWith(color: colorScheme.onSurface),
               ),
               CheckboxListTile(
-                title: Text(localizations.onlySuggestions, style: TextStyle(color: colorScheme.onSurface)), // Cor para o título do CheckboxListTile
+                title: Text(localizations.onlySuggestions, style: TextStyle(color: colorScheme.onSurface)),
                 value: viewModel.onlySuggestionsSelected,
                 onChanged: viewModel.setOnlySuggestionsSelected,
-                activeColor: colorScheme.primary, // Cor do checkbox quando marcado
-                checkColor: colorScheme.onPrimary, // Cor do "check" (sinal de V)
+                activeColor: colorScheme.primary,
+                checkColor: colorScheme.onPrimary,
               ),
               if (!viewModel.onlySuggestionsSelected)
                 ...viewModel.availableGenres.map((genre) {
@@ -171,10 +156,10 @@ class _NewExchangePageState extends State<NewExchangePage> {
 
               TextFormField(
                 controller: viewModel.suggestionsController,
-                style: TextStyle(color: colorScheme.onSurface), // Define a cor do texto digitado
+                style: TextStyle(color: colorScheme.onSurface),
                 decoration: InputDecoration(
                   labelText: localizations.suggestionsHint,
-                  labelStyle: TextStyle(color: colorScheme.onSurfaceVariant), // Cor do label
+                  labelStyle: TextStyle(color: colorScheme.onSurfaceVariant),
                   border: const OutlineInputBorder(),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: colorScheme.outline),
@@ -205,7 +190,7 @@ class _NewExchangePageState extends State<NewExchangePage> {
                         );
                         return;
                       }
-                      await viewModel.registerExchange();
+                      await viewModel.registerExchange(localizations);
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -226,6 +211,25 @@ class _NewExchangePageState extends State<NewExchangePage> {
         ),
       ),
     );
+  }
+
+  String _getSuccessLocalizedText(AppLocalizations localizations, String key) {
+    switch (key) {
+      case 'exchangeRegisteredSuccess': return localizations.exchangeRegisteredSuccess;
+      default: return localizations.unknownSuccess;
+    }
+  }
+
+  String _getErrorLocalizedText(AppLocalizations localizations, String key) {
+    switch (key) {
+      case 'userIdNotFound': return localizations.userIdNotFound;
+      case 'bookNameRequired': return localizations.validationRequiredField;
+      case 'bookStateRequired': return localizations.validationSelectState;
+      case 'suggestionsRequired': return localizations.validationRequiredField;
+      case 'genresOrSuggestionsRequired': return localizations.genresOrSuggestionsRequired;
+      case 'exchangeRegisteredError': return localizations.exchangeRegisteredError;
+      default: return localizations.unknownError;
+    }
   }
 
   String _getGenreLocalizedText(AppLocalizations localizations, String genre) {

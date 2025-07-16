@@ -179,7 +179,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get exchangeDetailsTitle => 'Detalhes da Troca';
 
   @override
-  String get makeOfferTitle => 'Fazer uma Oferta';
+  String get makeOfferTitle => 'Fazer uma oferta';
 
   @override
   String get offeringBookNameHint => 'Nome do livro que você oferece';
@@ -188,7 +188,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get offeringBookStateTitle => 'Estado do seu livro';
 
   @override
-  String get makeOfferButton => 'Fazer Oferta';
+  String get makeOfferButton => 'Fazer oferta';
 
   @override
   String get offerMadeSuccessfully => 'Oferta realizada com sucesso!';
@@ -201,7 +201,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Você precisa estar logado para fazer uma oferta.';
 
   @override
-  String get currentOffersTitle => 'Ofertas Atuais para esta Troca';
+  String get currentOffersTitle => 'Ofertas atuais para esta troca';
 
   @override
   String get offeredBook => 'Livro Ofertado';
@@ -211,4 +211,33 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get offersTitle => 'Ofertas';
+
+  @override
+  String get userIdNotFound =>
+      'ID do usuário não encontrado. Por favor, faça login.';
+
+  @override
+  String get bookNameRequired => 'O nome do livro é obrigatório.';
+
+  @override
+  String get bookStateRequired => 'O estado do livro é obrigatório.';
+
+  @override
+  String get suggestionsRequired =>
+      'As sugestões são obrigatórias quando \'Apenas Sugestões\' está selecionado.';
+
+  @override
+  String get anyGenre => 'Qualquer gênero';
+
+  @override
+  String get newExchangeTitle => 'Nova Troca';
+
+  @override
+  String get registerExchangeButton => 'Cadastrar Troca';
+
+  @override
+  String get bookNameLabel => 'Nome do Livro';
+
+  @override
+  String get unknownSuccess => 'Operação concluída com sucesso.';
 }

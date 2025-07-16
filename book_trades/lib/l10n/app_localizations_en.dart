@@ -178,7 +178,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get exchangeDetailsTitle => 'Exchange Details';
 
   @override
-  String get makeOfferTitle => 'Make an Offer';
+  String get makeOfferTitle => 'Make an offer';
 
   @override
   String get offeringBookNameHint => 'Book you are offering';
@@ -187,7 +187,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get offeringBookStateTitle => 'State of your book';
 
   @override
-  String get makeOfferButton => 'Make Offer';
+  String get makeOfferButton => 'Make offer';
 
   @override
   String get offerMadeSuccessfully => 'Offer made successfully!';
@@ -199,7 +199,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get userNotLoggedInError => 'You must be logged in to make an offer.';
 
   @override
-  String get currentOffersTitle => 'Current Offers for this Exchange';
+  String get currentOffersTitle => 'Current offers for this exchange';
 
   @override
   String get offeredBook => 'Offered Book';
@@ -209,4 +209,32 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get offersTitle => 'Offers';
+
+  @override
+  String get userIdNotFound => 'User ID not found. Please log in.';
+
+  @override
+  String get bookNameRequired => 'Book name is required.';
+
+  @override
+  String get bookStateRequired => 'Book state is required.';
+
+  @override
+  String get suggestionsRequired =>
+      'Suggestions are required when \'Only Suggestions\' is selected.';
+
+  @override
+  String get anyGenre => 'Any genre';
+
+  @override
+  String get newExchangeTitle => 'New Exchange';
+
+  @override
+  String get registerExchangeButton => 'Register Exchange';
+
+  @override
+  String get bookNameLabel => 'Book Name';
+
+  @override
+  String get unknownSuccess => 'Operation completed successfully.';
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto2/repository/exchange_data.dart';
 import 'package:projeto2/repository/exchange_repository.dart';
 import 'package:projeto2/repository/floor/login_try_dao.dart';
-
+import '../l10n/app_localizations.dart';
 import '../repository/login_try_repository.dart';
 import '../ui/login/login_page.dart';
 
@@ -39,7 +39,7 @@ class NewExchangeViewModel extends ChangeNotifier {
   List<String> get availableGenres => _availableGenres;
   List<String> get selectedGenres => _selectedGenres;
 
-  NewExchangeViewModel(this._repository, this._savedLoginDao, this.savedLoginRepository);
+  NewExchangeViewModel(this._repository, this._savedLoginDao, this.savedLoginRepository, AppLocalizations locals);
 
   void setSelectedBookState(String? state) {
     _selectedBookState = state;
@@ -65,18 +65,16 @@ class NewExchangeViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> registerExchange() async {
+  Future<void> registerExchange(AppLocalizations locals) async {
     _isLoading = true;
     _errorMessage = null;
     _successMessage = null;
-    notifyListeners();
+    notifyListeners(); // Notifica que o carregamento começou
 
     try {
       final String? userIdString = await _savedLoginDao.getUserId();
       if (userIdString == null) {
-        _errorMessage = "ID do usuário não encontrado. Por favor, faça login.";
-        notifyListeners();
-        return;
+        throw Exception("userIdNotFound");
       }
       final int solicitorId = int.parse(userIdString);
 
@@ -106,11 +104,11 @@ class NewExchangeViewModel extends ChangeNotifier {
       String sugestedValue = suggestionsController.text.trim();
 
       if (_onlySuggestionsSelected) {
-        searchingForValue = "Apenas sugestões";
+        searchingForValue = locals.onlySuggestions;
       } else {
         searchingForValue = _selectedGenres.join(', ');
         if (searchingForValue.isEmpty) {
-          searchingForValue = "Qualquer gênero";
+          searchingForValue = locals.anyGenre;
         }
       }
 
@@ -126,22 +124,30 @@ class NewExchangeViewModel extends ChangeNotifier {
 
       await _repository.addExchange(newExchange);
       _successMessage = "exchangeRegisteredSuccess";
-      notifyListeners(); // Notifica para exibir o toast de sucesso
+      _isLoading = false; // Define como false no sucesso
+      notifyListeners(); // Notifica a conclusão e o sucesso
 
-      // AGORA: Atrasar o reset do formulário para dar tempo ao toast
       Future.delayed(const Duration(seconds: 2), () {
-        _resetForm(); // Reseta o formulário e limpa as mensagens
+        _resetForm();
       });
 
-
     } catch (e) {
-      _errorMessage = "exchangeRegisteredError";
+      if (e is Exception && e.toString().contains("userIdNotFound")) {
+        _errorMessage = "userIdNotFound";
+      } else if (e is Exception && e.toString().contains("bookNameRequired")) {
+        _errorMessage = "bookNameRequired";
+      } else if (e is Exception && e.toString().contains("bookStateRequired")) {
+        _errorMessage = "bookStateRequired";
+      } else if (e is Exception && e.toString().contains("suggestionsRequired")) {
+        _errorMessage = "suggestionsRequired";
+      } else if (e is Exception && e.toString().contains("genresOrSuggestionsRequired")) {
+        _errorMessage = "genresOrSuggestionsRequired";
+      } else {
+        _errorMessage = "exchangeRegisteredError";
+      }
       debugPrint("Erro detalhado ao cadastrar troca: $e");
-      notifyListeners(); // Notifica para exibir o toast de erro imediatamente
-    } finally {
-      _isLoading = false;
-      // Removido notifyListeners() daqui para controlar o reset após o delay.
-      // Ele já é chamado no try/catch e dentro do Future.delayed.
+      _isLoading = false; // Define como false no erro
+      notifyListeners(); // Notifica a conclusão e o erro
     }
   }
 
@@ -153,7 +159,7 @@ class NewExchangeViewModel extends ChangeNotifier {
     _selectedGenres = [];
     _errorMessage = null;
     _successMessage = null;
-    notifyListeners(); // Notifica para o reset da UI
+    notifyListeners();
   }
 
   void clearSuccessMessage() {
@@ -174,9 +180,7 @@ class NewExchangeViewModel extends ChangeNotifier {
   }
 
   Future<void> performLogout(BuildContext context) async {
-    // delete saved login
     await savedLoginRepository.deleteAll();
-    // navigate to login
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => LoginPage()));
   }
 }

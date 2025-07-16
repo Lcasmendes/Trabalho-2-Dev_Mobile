@@ -37,11 +37,6 @@
           "userId": 2,
           "book": "Vinland Saga 2",
           "book_state": "Conservado"
-        },
-        {
-          "userId": 3,
-          "book": "Teste",
-          "book_state": "Novo"
         }
       ],
       "id": "9e87"
@@ -55,34 +50,14 @@
       "sugested": "It: A coisa",
       "offerings": [
         {
+          "userId": 1,
           "book": "O iluminado",
-          "book_state": "Conservado",
-          "userId": 1
+          "book_state": "Conservado"
         },
         {
-          "book": "Teste ",
-          "book_state": "Conservado",
-          "userId": 1
-        },
-        {
-          "book": "Teste 2",
-          "book_state": "Novo",
-          "userId": 1
-        },
-        {
-          "book": "It: A coisa",
-          "book_state": "Conservado",
-          "userId": 1
-        },
-        {
-          "book": "Warbreaker",
-          "book_state": "Conservado",
-          "userId": 1
-        },
-        {
-          "book": "It: a coisa",
-          "book_state": "Seminovo",
-          "userId": 1
+          "userId": 3,
+          "book": "Teste 3",
+          "book_state": "Danificado"
         }
       ],
       "id": "f1b3"
@@ -92,7 +67,13 @@
       "book_name": "A culpa e das estrelas",
       "book_state": "Seminovo",
       "exchange_id": 3,
-      "offerings": [],
+      "offerings": [
+        {
+          "userId": 3,
+          "book": "Trono de Vidro",
+          "book_state": "Seminovo"
+        }
+      ],
       "searching_for": "Fantasia, Romance",
       "solicitor_id": 1,
       "sugested": "50 tons de cinza"
@@ -124,49 +105,65 @@
       "sugested": "Dungeon Meshi"
     },
     {
-      "id": "8c17",
-      "book_name": "Warbreaker",
-      "book_state": "Seminovo",
-      "exchange_id": 8,
-      "offerings": [],
-      "searching_for": "Fantasia, Ficção científica",
-      "solicitor_id": 1,
-      "sugested": "Senhor dos aneis"
-    },
-    {
-      "id": "5478",
-      "exchange_id": 9,
-      "solicitor_id": 1,
-      "book_name": "Livro 1",
-      "book_state": "Conservado",
-      "searching_for": "Fantasia",
-      "sugested": "Livro 2",
-      "offerings": []
-    },
-    {
-      "id": "a6a1",
-      "exchange_id": 10,
-      "solicitor_id": 1,
-      "book_name": "Livro 1",
-      "book_state": "Conservado",
-      "searching_for": "Fantasia",
-      "sugested": "Livro 2",
-      "offerings": [
-        {
-          "userId": 999,
-          "book": "Livro Novo",
-          "book_state": "Usado"
-        }
-      ]
-    },
-    {
       "id": "7891",
-      "exchange_id": 11,
+      "exchange_id": 9,
       "solicitor_id": 3,
       "book_name": "Rosa Sanguinaria",
       "book_state": "Seminovo",
       "searching_for": "Fantasia, Ficção científica",
       "sugested": "",
+      "offerings": [
+        {
+          "userId": 1,
+          "book": "Foundryside",
+          "book_state": "Novo"
+        }
+      ]
+    },
+    {
+      "id": "4644",
+      "exchange_id": 10,
+      "solicitor_id": 2,
+      "book_name": "Gente Ansiosa",
+      "book_state": "Novo",
+      "searching_for": "Apenas sugestões",
+      "sugested": "Os sete maridos de Evelyn Hugo",
+      "offerings": [
+        {
+          "userId": 3,
+          "book": "Os sete maridos de Evelyn Hugo",
+          "book_state": "Seminovo"
+        }
+      ]
+    },
+    {
+      "id": "e390",
+      "exchange_id": 11,
+      "solicitor_id": 3,
+      "book_name": "Wind and Thruth",
+      "book_state": "Novo",
+      "searching_for": "Apenas sugestões",
+      "sugested": "Babel",
+      "offerings": []
+    },
+    {
+      "id": "a82a",
+      "exchange_id": 13,
+      "solicitor_id": 3,
+      "book_name": "Oathbringer",
+      "book_state": "Novo",
+      "searching_for": "Fantasia",
+      "sugested": "",
+      "offerings": []
+    },
+    {
+      "id": "bcaa",
+      "exchange_id": 14,
+      "solicitor_id": 3,
+      "book_name": "Sword of Kaigen",
+      "book_state": "Seminovo",
+      "searching_for": "Apenas as sugestões de troca",
+      "sugested": "WhiteSand",
       "offerings": []
     }
   ]

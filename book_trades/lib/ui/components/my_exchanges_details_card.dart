@@ -25,7 +25,7 @@ class MyExchangesDetailsCard extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       color: colorScheme.surfaceVariant,
-        child: InkWell( // Torna o card clicável
+        child: InkWell(
           onTap: () {
             // todo
           },

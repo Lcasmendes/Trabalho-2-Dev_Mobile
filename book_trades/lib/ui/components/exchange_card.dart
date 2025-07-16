@@ -18,8 +18,8 @@ class ExchangeCard extends StatelessWidget {
 
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
-      color: colorScheme.surfaceVariant, // Usar uma cor do tema para o card
-      child: InkWell( // Torna o card clicável
+      color: colorScheme.surfaceVariant,
+      child: InkWell(
         onTap: () {
           Navigator.push(
             context,
@@ -28,7 +28,7 @@ class ExchangeCard extends StatelessWidget {
             ),
           );
         },
-        borderRadius: BorderRadius.circular(12), // Para combinar com o Card
+        borderRadius: BorderRadius.circular(12),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -36,7 +36,7 @@ class ExchangeCard extends StatelessWidget {
             children: [
               Text(
                 exchange.bookName,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(color: colorScheme.onSurfaceVariant), // Usar onSurfaceVariant para texto no Card
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(color: colorScheme.onSurfaceVariant),
               ),
               const SizedBox(height: 8),
               Text(
@@ -52,7 +52,6 @@ class ExchangeCard extends StatelessWidget {
                 style: TextStyle(color: colorScheme.onSurfaceVariant),
               ),
               const SizedBox(height: 8),
-              // Você pode adicionar um botão ou mais informações aqui se quiser
             ],
           ),
         ),

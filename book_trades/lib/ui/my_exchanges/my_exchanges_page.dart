@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../l10n/app_localizations.dart';
 import '../../viewmodels/my_exchanges_view_model.dart';
-import '../components/exchange_card.dart';
 import '../components/my_exchanges_card.dart';
 import '../components/stateful_content.dart';
 

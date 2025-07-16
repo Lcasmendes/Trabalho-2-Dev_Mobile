@@ -5,7 +5,7 @@ class Exchange {
   final int solicitorId;
   final String bookName;
   final String bookState;
-  final String searchingFor;
+  final String? searchingFor;
   final String sugested;
   final String? id;
 

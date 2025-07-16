@@ -425,7 +425,7 @@ abstract class AppLocalizations {
   /// No description provided for @makeOfferTitle.
   ///
   /// In en, this message translates to:
-  /// **'Make an Offer'**
+  /// **'Make an offer'**
   String get makeOfferTitle;
 
   /// No description provided for @offeringBookNameHint.
@@ -443,7 +443,7 @@ abstract class AppLocalizations {
   /// No description provided for @makeOfferButton.
   ///
   /// In en, this message translates to:
-  /// **'Make Offer'**
+  /// **'Make offer'**
   String get makeOfferButton;
 
   /// No description provided for @offerMadeSuccessfully.
@@ -467,7 +467,7 @@ abstract class AppLocalizations {
   /// No description provided for @currentOffersTitle.
   ///
   /// In en, this message translates to:
-  /// **'Current Offers for this Exchange'**
+  /// **'Current offers for this exchange'**
   String get currentOffersTitle;
 
   /// No description provided for @offeredBook.
@@ -487,6 +487,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Offers'**
   String get offersTitle;
+
+  /// No description provided for @userIdNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'User ID not found. Please log in.'**
+  String get userIdNotFound;
+
+  /// No description provided for @bookNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Book name is required.'**
+  String get bookNameRequired;
+
+  /// No description provided for @bookStateRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Book state is required.'**
+  String get bookStateRequired;
+
+  /// No description provided for @suggestionsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggestions are required when \'Only Suggestions\' is selected.'**
+  String get suggestionsRequired;
+
+  /// No description provided for @anyGenre.
+  ///
+  /// In en, this message translates to:
+  /// **'Any genre'**
+  String get anyGenre;
+
+  /// No description provided for @newExchangeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New Exchange'**
+  String get newExchangeTitle;
+
+  /// No description provided for @registerExchangeButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Register Exchange'**
+  String get registerExchangeButton;
+
+  /// No description provided for @bookNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Book Name'**
+  String get bookNameLabel;
+
+  /// No description provided for @unknownSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Operation completed successfully.'**
+  String get unknownSuccess;
 }
 
 class _AppLocalizationsDelegate

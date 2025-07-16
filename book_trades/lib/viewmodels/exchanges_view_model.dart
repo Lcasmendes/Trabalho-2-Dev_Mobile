@@ -72,7 +72,7 @@ class ExchangesViewModel extends ChangeNotifier {
       _displayedExchanges = _allExchanges.where((exchange) {
         return exchange.bookName.toLowerCase().contains(queryLower) ||
             exchange.bookState.toLowerCase().contains(queryLower) ||
-            exchange.searchingFor.toLowerCase().contains(queryLower) ||
+            exchange.searchingFor!.toLowerCase().contains(queryLower) ||
             exchange.sugested.toLowerCase().contains(queryLower) ||
             exchange.offerings.any((offering) =>
             offering.book.toLowerCase().contains(queryLower) ||

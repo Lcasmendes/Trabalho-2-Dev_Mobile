@@ -23,8 +23,8 @@ class MyExchangesCard extends StatelessWidget {
 
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
-      color: colorScheme.surfaceVariant, // Usar uma cor do tema para o card
-      child: InkWell( // Torna o card clicável
+      color: colorScheme.surfaceVariant,
+      child: InkWell(
         onTap: () {
           Navigator.push(
             context,
